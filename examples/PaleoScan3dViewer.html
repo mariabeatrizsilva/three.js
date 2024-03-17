@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - drag controls</title>
+		<title>PaleoScan 3D Viewer</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
@@ -18,6 +18,7 @@
 	<body>
 
 		<div id="info">
+			<h3> PaleoScan 3D Viewer</h3>
 			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - drag controls<br />
 			Use "Shift+Click" to add/remove objects to/from a group.<br />
 			Use "M" to toggle between rotate and translate mode.<br />
@@ -36,7 +37,6 @@
 		<script type="module">
 
 			import * as THREE from 'three';
-
 			import { DragControls } from 'three/addons/controls/DragControls.js';
 
 			let container;
@@ -80,7 +80,7 @@
 
 				const geometry = new THREE.BoxGeometry();
 
-				for ( let i = 0; i < 200; i ++ ) {
+				for ( let i = 0; i < 10; i ++ ) { // adding objects to scenes 
 
 					const object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
 
@@ -141,13 +141,10 @@
 			}
 
 			function onKeyDown( event ) {
-
 				enableSelection = ( event.keyCode === 16 ) ? true : false;
-				
-				if ( event.keyCode === 77 ) {
-
+				if ( event.keyCode === 77 ) { // Setting whether translate or rotate mode
 					controls.mode = ( controls.mode === 'translate' ) ? 'rotate' : 'translate';
-			
+					console.log(controls.mode)
 				}
 
 			}
