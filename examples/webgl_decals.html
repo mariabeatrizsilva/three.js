@@ -165,6 +165,7 @@
 
 					if ( event.isPrimary ) {
 
+						console.log("onpointermove")
 						checkIntersection( event.clientX, event.clientY );
 
 					}
@@ -294,9 +295,7 @@
 			function animate() {
 
 				requestAnimationFrame( animate );
-
 				renderer.render( scene, camera );
-
 				stats.update();
 
 			}
